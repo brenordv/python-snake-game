@@ -1,4 +1,15 @@
 # Snake Game Clone
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=brenordv_python-snake-game&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=brenordv_python-snake-game)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=brenordv_python-snake-game&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=brenordv_python-snake-game)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=brenordv_python-snake-game&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=brenordv_python-snake-game)
+
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=brenordv_python-snake-game&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=brenordv_python-snake-game)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=brenordv_python-snake-game&metric=bugs)](https://sonarcloud.io/summary/new_code?id=brenordv_python-snake-game)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=brenordv_python-snake-game&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=brenordv_python-snake-game)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=brenordv_python-snake-game&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=brenordv_python-snake-game)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=brenordv_python-snake-game&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=brenordv_python-snake-game)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=brenordv_python-snake-game&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=brenordv_python-snake-game)
+
 Not a full game, but a playable one.
 Probably buggy... (or full of crazy features, depending on if you're a 'glass half full kind of person')
 
@@ -11,7 +22,8 @@ I left a lot of comments on this script to help people understand better what is
 4. If you hit yourself or the borders of the screen, game over!
 5. To leave the game, press `ALT+X`
  
-
+## Demo
+[Quick video demo of this game](./python_snake_game.mp4)
 # How to install
 Install the dependencies using the command:
 ```shell

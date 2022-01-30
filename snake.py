@@ -182,6 +182,29 @@ def _log(log_func, message, should_log):
     log_func(message)
 
 
+def _update_loop_count(loop, num_parts):
+    # TODO: Find a better way to do this.
+    loop = loop + 1 if loop <= num_parts else loop
+    return loop
+
+
+def _check_if_user_wants_to_quit(key):
+    if key == curses.ALT_X:
+        raise InterruptedError()
+
+
+def _initialize_log(log_gameplay):
+    if log_gameplay:
+        logger = log_factory(log_name="SNAKE", log_file="./snake.log") if log_gameplay else None
+        log_info = logger.info
+        log_exception = logger.exception
+
+    else:
+        log_info = None
+        log_exception = None
+    return log_exception, log_info
+
+
 def main_snake(log_gameplay: bool, num_parts: int = 3,
                score_per_food: int = 1, initial_direction: Direction = Direction.Right):
     # Score.
@@ -194,14 +217,7 @@ def main_snake(log_gameplay: bool, num_parts: int = 3,
     timeout = 500
 
     # Initializing logging.
-    if log_gameplay:
-        logger = log_factory(log_name="SNAKE", log_file="./snake.log") if log_gameplay else None
-        log_info = logger.info
-        log_exception = logger.exception
-
-    else:
-        log_info = None
-        log_exception = None
+    log_exception, log_info = _initialize_log(log_gameplay)
 
     # Initializing stopwatch.
     sw = StopWatch(auto_start=True)
@@ -240,12 +256,11 @@ def main_snake(log_gameplay: bool, num_parts: int = 3,
             # Gets which key is/was pressed
             key = _get_pressed_key(window, key)
 
-            if key == curses.ALT_X:
-                raise InterruptedError()
+            # Since curses prevents usual CTRL+C, we're checking if they used ALT+X
+            _check_if_user_wants_to_quit(key)
 
             # Add 1 to the loop count. For now, it is used only to check whether to check for self collision or not.
-            # TODO: Find a better way to do this.
-            loop = loop + 1 if loop <= num_parts else loop
+            loop = _update_loop_count(loop, num_parts)
 
             # Do the collision checks
             # Has the snake collided with game play area?
